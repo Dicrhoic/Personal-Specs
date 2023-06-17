@@ -1,0 +1,15 @@
+<div *ngIf="part">
+
+    <h2>{{part.name | uppercase}} Details</h2>
+    <div><span>Product ID: </span>{{part.productID}} | <span>Brand: </span>{{part.brand}}</div>
+    <div>
+        <label for="part-name">Part name: </label>
+        <input id="part-name" [(ngModel)]="part.name" placeholder="name" readonly>
+        <img [attr.src]="part.image" class="prod-image">
+        <div *ngIf="part.price">
+            <label for="part-price">Cost: </label>
+            <a>{{part.price | currency: 'AUD' : 'symbol'}}</a>
+        </div>
+    </div>
+
+</div>
