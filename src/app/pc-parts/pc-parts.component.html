@@ -1,0 +1,19 @@
+<body>
+    <h2>My PC's Part</h2>
+    <table id="myTable" matSort (matSortChange)="sortData($event)">
+        <tr class="header">
+            <th mat-sort-header="name" class="header-name" style="width:60%;">Name</th>
+            <th mat-sort-header="type" class="header-type" style="width:20%;">Type</th>
+            <th mat-sort-header="brand" class="header-brand" style="width:20%;">Brand</th>
+        </tr>
+        <tr *ngFor="let part of pcParts">
+            <th class="header-name" [class.selected]="part === selectedPart" (click)="onSelect(part)">
+                <span class="name">{{part.name}}</span>
+            </th>
+            <th class="header-type">{{part.type}}</th>
+            <th class="header-brand">{{part.brand}}</th>
+        </tr>
+  
+    </table>
+    <app-pc-part-detail [part]="selectedPart"></app-pc-part-detail>
+</body>
